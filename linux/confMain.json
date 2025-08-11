@@ -1,0 +1,51 @@
+{
+  "audio": "pipewire",
+  "bootloader": "grub-install",
+  "custom-commands": [
+    "cd"
+  ],
+  "debug": false,
+  "filesystem": "btrfs",
+  "gfx_driver": "All open-source (default)",
+  "hostname": "localhost",
+  "kernels": [
+    "linux"
+  ],
+  "keyboard-layout": "us",
+  "mirror-region": "Worldwide",
+  "nic": {
+    "type": "nm"
+  },
+  "ntp": true,
+  "packages": [
+    "arch-install-scripts",
+    "bash",
+    "binutils",
+    "ccache",
+    "chromium",
+    "coreutils",
+    "efibootmgr",
+    "fakeroot",
+    "grub-btrfs",
+    "gtk-update-icon-cache",
+    "meson",
+    "nano",
+    "ninja",
+    "procs",
+    "rsync",
+    "usbutils",
+    "zlib",
+    "zstd",
+    "wget",
+    "xdg-utils",
+    "xf86-input-libinput"
+  ],
+  "profile": "gnome",
+  "script": "guided",
+  "services": [],
+  "swap": true,
+  "sys-encoding": "utf-8",
+  "sys-language": "en_GB",
+  "timezone": "Europe/Moscow",
+  "version": "2.3.2"
+}
