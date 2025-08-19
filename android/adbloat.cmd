@@ -34,6 +34,7 @@ goto :tweaks
         adb shell cmd appops set $packageName INSTANT_APP_START_FOREGROUND deny
         adb shell cmd appops set $packageName ACCESS_RESTRICTED_SETTINGS deny
         adb shell cmd appops write-settings
+        adb shell dumpsys deviceidle sys-whitelist -$packageName
     }"
 
     adb shell pm uninstall --user 0 com.google.android.googlequicksearchbox
@@ -43,6 +44,7 @@ goto :tweaks
     adb shell device_config put runtime_native_boot pin_camera false
     adb shell device_config put launcher ENABLE_QUICK_LAUNCH_V2 true
     adb shell device_config put launcher enable_quick_launch_v2 true
+    adb shell device_config put privacy camera_mic_icons_enabled false
     adb shell device_config put privacy location_access_check_enabled false
     adb shell device_config put privacy location_accuracy_enabled false
     adb shell device_config put privacy safety_protection_enabled true
@@ -53,6 +55,7 @@ goto :tweaks
     adb shell device_config put graphics render_thread_priority high
     adb shell device_config put graphics enable_gpu_boost true
     adb shell device_config put graphics enable_cpu_boost true
+    adb shell device_config put gpu_options performance_tuning true
     adb shell device_config put surfaceflinger set_max_frame_rate_multiplier 0.5
     adb shell device_config put systemui window_cornerRadius 0
     adb shell device_config put systemui window_blur 0
@@ -61,6 +64,7 @@ goto :tweaks
     adb shell dumpsys deviceidle whitelist +com.sec.android.app.launcher
     adb shell dumpsys power set_sampling_rate 0
     adb shell svc data disable
+    adb shell cmd shortcut reset-throttling
     adb shell cmd shortcut reset-all-throttling
     adb shell cmd power set-fixed-performance-mode-enabled true
     adb shell cmd power set-adaptive-power-saver-enabled false
@@ -71,6 +75,7 @@ goto :tweaks
     adb shell cmd looper_stats disable
     adb shell cmd display ab-logging-disable
     adb shell cmd display dwb-logging-disable
+    adb shell cmd stats clear-puller-cache
     adb shell pm trim-caches 999999M
     adb shell pm compile -a -f --check-prof false -m speed
     adb shell pm compile -a -f --secondary-dex --check-prof false -m speed
@@ -247,6 +252,8 @@ goto :tweaks
     adb shell settings put global persist.texture_cache_opt 1
     adb shell settings put global disable_hw_overlays 1
     adb shell settings put global overlay_disable_force_hwc 1
+    adb shell settings put global renderthread.wakeup_ms 0
+    adb shell settings put global renderthread.reduceopstasksplitting true
     adb shell settings put global renderthread.skia.reduceopstasksplitting true
     adb shell settings put global skia.force_gl_texture 1
     adb shell settings put global omap.enhancement true
@@ -586,6 +593,7 @@ goto :tweaks
     adb shell settings put global ACTIVITY_INACTIVITY_RESET_TIME false
     adb shell settings put global APP_SWITCH_DELAY_TIME false
     adb shell settings put global CONTENT_APP_IDLE_OFFSET false
+    adb shell settings put global mem_performance 1
     adb shell settings put global foreground_mem_priority high
     adb shell settings put global ro.FOREGROUND_APP_ADJ 0
     adb shell settings put global ro.HOME_APP_ADJ 1
