@@ -71,6 +71,7 @@ goto :tweaks
     adb shell cmd power set-mode 0
     adb shell cmd netpolicy set restrict-background true
     adb shell cmd activity idle-maintenance
+    adb shell cmd deviceidle force-idle deep
     adb shell cmd thermalservice override-status 1
     adb shell cmd looper_stats disable
     adb shell cmd display ab-logging-disable
