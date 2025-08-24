@@ -48,6 +48,9 @@ goto :tweaks
     adb shell device_config put privacy location_access_check_enabled false
     adb shell device_config put privacy location_accuracy_enabled false
     adb shell device_config put privacy safety_protection_enabled true
+    adb shell device_config put adservice_system_service_enabled adservice_enabled false
+    adb shell device_config put adservices measurement_job_aggregate_reporting_kill_switch true
+    adb shell device_config put adservices measurement_job_event_reporting_kill_switch true
     adb shell device_config put activity_manager use_compaction true
     adb shell device_config put activity_manager set_sync_disabled_for_tests persistent
     adb shell device_config put activity_manager enable_background_cpu_boost true
@@ -63,9 +66,15 @@ goto :tweaks
     adb shell dumpsys deviceidle whitelist +com.android.systemui
     adb shell dumpsys deviceidle whitelist +com.sec.android.app.launcher
     adb shell dumpsys power set_sampling_rate 0
+    adb shell dumpsys batterystats --reset
+    adb shell dumpsys binder_calls_stats --disable
     adb shell svc data disable
+    adb shell cmd autofill reset
     adb shell cmd shortcut reset-throttling
     adb shell cmd shortcut reset-all-throttling
+    adb shell cmd content_capture destroy sessions
+    adb shell cmd content_capture set bind-instant-service-allowed false
+    adb shell cmd content_capture set default-service-enabled 0 false
     adb shell cmd power set-fixed-performance-mode-enabled true
     adb shell cmd power set-adaptive-power-saver-enabled false
     adb shell cmd power set-mode 0
@@ -77,6 +86,8 @@ goto :tweaks
     adb shell cmd looper_stats disable
     adb shell cmd display ab-logging-disable
     adb shell cmd display dwb-logging-disable
+    adb shell cmd wifi set-verbose-logging disabled
+    adb shell cmd voiceinteraction set-debug-hotword-logging false
     adb shell cmd stats clear-puller-cache
     adb shell pm trim-caches 999999M
     adb shell pm compile -a -f --check-prof false -m speed
