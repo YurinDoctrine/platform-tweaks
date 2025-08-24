@@ -289,7 +289,6 @@ tweaks() {
     adb shell settings put global wifi_scan_throttle_enabled 0
     adb shell settings put global wifi_scan_always_enabled 0
     adb shell settings put global ble_scan_always_enabled 0
-    adb shell settings put global hotword_detection_enabled 0
     adb shell settings put global mobile_data_always_on 0
     adb shell settings put global mobile_data_keepalive_enabled 0
     adb shell settings put global default_restrict_background_data 1
