@@ -839,6 +839,7 @@ tweaks() {
     adb shell settings put global persist.sys.boost.launch 1
     adb shell settings put global persist.sys.powersave.rotate 1
     adb shell settings put global persist.irqbalance.enable true
+    adb shell settings put global sys.usap.enable true
     adb shell settings put global persist.device_config.runtime_native.use_app_image_startup_cache true
     adb shell settings put global persist.device_config.runtime_native.usap_pool_enabled true
     adb shell settings put global persist.device_config.runtime_native.usap_pool_size_min 1
@@ -946,6 +947,7 @@ tweaks() {
     adb shell settings put global persist.thermalmanager.enable true
     adb shell settings put global thermal_offload 0
     adb shell settings put global allow_heat_cooldown_always 1
+    adb shell settings put global sem_low_heat_mode 1
     adb shell settings put global persist.sys.lowcost 1
     adb shell settings put global persist.sys.binary_xml false
     adb shell settings put global unused_static_shared_lib_min_cache_period_ms 250
@@ -1366,7 +1368,9 @@ tweaks() {
     adb shell settings put system background_power_saving_enable 1
     adb shell settings put system perf_profile performance
     adb shell settings put system intelligent_sleep_mode 0
+    adb shell settings put system power_sleep_mode_enabled 1
     adb shell settings put system power_mode high
+    adb shell settings put system persist.sys_emc_mode power_saving
     adb shell settings put system POWER_SAVE_PRE_CLEAN_MEMORY_TIME 0
     adb shell settings put system tube_amp_effect 1
     adb shell settings put system k2hd_effect 1
