@@ -297,6 +297,7 @@ tweaks() {
     adb shell settings put global data_roaming_int 0
     adb shell settings put global data_roaming 0
     adb shell settings put global data_saver_mode 1
+    adb shell settings put global wfc_ims_mode 2
     adb shell settings put global ro.wifi.signal.optimized true
     adb shell settings put global ro.sf.wifi_sleep_policy_default 2
     adb shell settings put global ro.mds.enable true
