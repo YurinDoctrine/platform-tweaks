@@ -661,7 +661,7 @@ options libahci skip_host_reset=1
 options snd_hda_intel power_save=1
 options snd_ac97_codec power_save=1
 options uhci-hcd debug=0
-options usbhid mousepoll=20
+options usbhid mousepoll=20 kbpoll=20 jspoll=20
 options usb-storage quirks=p
 options usbcore usbfs_snoop=0
 options usbcore autosuspend=10" | sudo tee /etc/modprobe.d/misc.conf
