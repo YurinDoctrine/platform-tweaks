@@ -27,6 +27,7 @@ goto :tweaks
     ForEach-Object {
         $packageName = $_ -replace '^package:', ''
         adb shell pm reset-permissions -p $packageName
+        adb shell cmd appops set $packageName AUTO_REVOKE_PERMISSIONS_IF_UNUSED allow
         adb shell cmd appops set $packageName WAKE_LOCK deny
         adb shell cmd appops set $packageName RUN_IN_BACKGROUND deny
         adb shell cmd appops set $packageName RUN_ANY_IN_BACKGROUND deny
