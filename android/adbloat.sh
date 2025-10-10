@@ -16,6 +16,7 @@ start() {
     tr -d '\r' |
     xargs -L1 -t -I {} sh -c '
         adb shell pm reset-permissions -p {};
+        adb shell cmd appops set {} AUTO_REVOKE_PERMISSIONS_IF_UNUSED allow;
         adb shell cmd appops set {} WAKE_LOCK deny;
         adb shell cmd appops set {} RUN_IN_BACKGROUND deny;
         adb shell cmd appops set {} RUN_ANY_IN_BACKGROUND deny;
