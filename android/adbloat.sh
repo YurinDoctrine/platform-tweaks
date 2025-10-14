@@ -1378,6 +1378,7 @@ tweaks() {
     adb shell settings put system k2hd_effect 1
     adb shell settings put system support_dolby 1
     adb shell settings put system advanced_settings 1
+    adb shell settings put system screen_mode_setting 2
     adb shell settings put system screen_auto_brightness_adj 0
     adb shell settings put system display_night_theme 1
     adb shell settings put system dark_theme 1
