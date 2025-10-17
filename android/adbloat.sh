@@ -598,6 +598,7 @@ tweaks() {
     adb shell settings put global APP_SWITCH_DELAY_TIME false
     adb shell settings put global CONTENT_APP_IDLE_OFFSET false
     adb shell settings put global mem_performance 1
+    adb shell settings put global config_enableShellMainThread true
     adb shell settings put global foreground_mem_priority high
     adb shell settings put global ro.FOREGROUND_APP_ADJ 0
     adb shell settings put global ro.HOME_APP_ADJ 1
